@@ -5,7 +5,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 class WechatController extends Controller
 {
+    //首次接入
+    public function valid()
+    {
+        echo $_GET['echostr'];
+    }
 
+    //接受微信推送事件
+    public function wxEvent()
+    {
+        $xml_str=file_get_contents("php://input");
+        $log_str='>>>>>>'.date('Y-m-d H:i:s').$xml_str."\n";
+        is_dir('logs') or mkdir('logs', 0777, true);
+        file_put_contents('logs/wx_event.log',$log_str,FILE_APPEND);
+    }
 
     public function accessToken()
     {
