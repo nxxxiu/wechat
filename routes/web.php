@@ -19,6 +19,6 @@ Route::get('/phpinfo', function () {
 });
 
 //微信
-Route::get('/wechat/valid','WechatController@valid');//首次接入
-Route::post('/wechat/valid','WechatController@wxEvent');//接收微信推送事件
+Route::get('/weixin/valid','WechatController@valid');//首次接入
+Route::post('/weixin/valid','WechatController@wxEvent');//接收微信推送事件
 Route::get('/wechat/accessToken','WechatController@accessToken');//获取微信accesstoken
